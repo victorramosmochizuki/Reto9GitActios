@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="shortcut icon" type="image/x-icon" href="pandora-layout/images/favicon.html" /><link type="text/css" rel="stylesheet" href="#{request.contextPath}/faces/javax.faces.resources/theme.css" /><link type="text/css" rel="stylesheet" href="#{request.contextPath}/faces/javax.faces.resources/fa/font-awesome.css" /><link type="text/css" rel="stylesheet" href="#{request.contextPath}/faces/javax.faces.resources/components.css" /><script type="text/javascript" src="#{request.contextPath}/faces/javax.faces.resources/jquery/jquery.js"></script><script type="text/javascript" src="#{request.contextPath}/faces/javax.faces.resources/core.js"></script><script type="text/javascript" src="#{request.contextPath}/faces/javax.faces.resources/components.js"></script><script type="text/javascript" src="#{request.contextPath}/faces/javax.faces.resources/jquery/jquery-plugins.js"></script><script type="text/javascript" src="#{request.contextPath}/faces/javax.faces.resources/touch/touchswipe.js"></script><link type="text/css" rel="stylesheet" href="#{request.contextPath}/faces/javax.faces.resources/css/primeflex.css" /><link type="text/css" rel="stylesheet" href="#{request.contextPath}/faces/javax.faces.resources/css/layout-teallight.css" /><script type="text/javascript">if (window.PrimeFaces) {
+                PrimeFaces.settings.locale = 'en_US';
+            }</script>
+        <title>Isoptec</title><script type="text/javascript" src="#{request.contextPath}/faces/javax.faces.resources/js/layout.js"></script><script type="text/javascript" src="#{request.contextPath}/faces/javax.faces.resources/sections.js"></script>
+    </h:head>
+    <h:body>
+        <div class="layout-wrapper layout-topbar-teallight layout-menu-light layout-slim-plus">
+            <div class="layout-rightpanel">
+                <div class="rightpanel-wrapper">
+                    <div class="rightpanel-header">
+                        <div class="cover"><img id="j_idt12" src="#{request.contextPath}/faces/javax.faces.resources/images/rightpanel/asset-cover.jpg" alt="" class="cover-image" /><img id="j_idt13" src="#{request.contextPath}/faces/javax.faces.resources/images/rightpanel/avatar.png" alt="" class="avatar-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-wrapper">
+                <div class="layout-menu-container">
+                    <form id="menuform" name="menuform" method="post" action="https://www.primefaces.org/pandora/empty.xhtml" enctype="application/x-www-form-urlencoded">
+                        <input type="hidden" name="menuform" value="menuform" />
+                        <div class="layout-profile">
+                        </div><ul id="menuform:j_idt19" class="layout-menu">
+
+                            <li id="menuform:sb_homepage" role="menuitem" class="layout-root-menuitem">
+                                <div><span class="layout-menuitem-text">Menu</span></div>
+                                <a href="#{request.contextPath}/faces/vistas/marca/marcaT.xhtml"><i class="fa fa-fw fa-home fa-fw layout-menuitem-icon"></i>
+                                    <span class="layout-menuitem-text">Menu</span>
+                                    <i class="fa fa-fw layout-submenu-toggler fa-angle-down"></i></a><div class="layout-menu-tooltip">
+                                    <div class="layout-menu-tooltip-arrow"></div>
+                                    <div class="layout-menu-tooltip-text">Menu</div></div><ul role="menu">
+                                    <li id="menuform:sb_dashboard" role="menuitem">
+                                        <a href="#{request.contextPath}/faces/vistas/marca/marcaT.xhtml">
+                                            <i class="fa fa-fw fa-dashboard fa-fw layout-menuitem-icon">
+                                            </i><span class="layout-menuitem-text">Tablas</span> </a>
+                                        <div class="layout-menu-tooltip">
+                                            <div class="layout-menu-tooltip-arrow">
+                                            </div><div class="layout-menu-tooltip-text">Tablas</div></div></li> </ul></li>
+
+
+
+                            <li id="menuform:sb_components" role="menuitem" class="layout-root-menuitem">
+                                <div><span class="layout-menuitem-text">Registrar</span></div>
+                                <a href="#{request.contextPath}/faces/vistas/area/areaT.xhtml"><i class="fa fa-fw fa-star fa-fw layout-menuitem-icon"></i>
+                                    <span class="layout-menuitem-text">Registrar</span>
+                                    <i class="fa fa-fw layout-submenu-toggler fa-angle-down"></i></a>
+                                <div class="layout-menu-tooltip"><div class="layout-menu-tooltip-arrow"></div>                                    
+                                    <div class="layout-menu-tooltip-text">Registrar</div></div>
+                                <ul role="menu"><li id="menuform:sb_forms" role="menuitem">
+
+                                        <a href="#{request.contextPath}/faces/vistas/proovedor/proovedorT.xhtml">
+                                            <i class="fa fa-fw fa-code fa-fw layout-menuitem-icon"></i>
+                                            <span class="layout-menuitem-text">Proovedor</span>
+                                        </a><div class="layout-menu-tooltip">
+                                            <div class="layout-menu-tooltip-arrow">
+                                            </div><div class="layout-menu-tooltip-text">Proovedor</div>
+                                        </div></li><li id="menuform:sb_data" role="menuitem">
+
+
+                                        <a href="#{request.contextPath}/faces/vistas/adquisicion/adquisicionT.xhtml">
+                                            <i class="fa fa-fw fa-table fa-fw layout-menuitem-icon"></i>
+                                            <span class="layout-menuitem-text">Adquisicion</span></a>
+                                        <div class="layout-menu-tooltip">
+                                            <div class="layout-menu-tooltip-arrow">
+                                            </div><div class="layout-menu-tooltip-text">Adquisicion</div></div></li>
+                                    <li id="menuform:sb_panels" role="menuitem">
+
+                                        <a href="#{request.contextPath}/faces/vistas/equipo/equipoT.xhtml">
+                                            <i class="fa fa-fw fa-list-alt fa-fw layout-menuitem-icon"></i>
+                                            <span class="layout-menuitem-text">Equipo</span></a>
+                                        <div class="layout-menu-tooltip">
+                                            <div class="layout-menu-tooltip-arrow">
+                                            </div><div class="layout-menu-tooltip-text">Equipo</div></div></li>
+
+                                    <li id="menuform:sb_panels" role="menuitem">
+                                        <a href="#{request.contextPath}/faces/vistas/dequipo/dequipoT.xhtml">
+                                            <i class="fa fa-fw fa-list-alt fa-fw layout-menuitem-icon"></i>
+                                            <span class="layout-menuitem-text">Detalle Equipo</span></a>
+                                        <div class="layout-menu-tooltip">
+                                            <div class="layout-menu-tooltip-arrow">
+                                            </div><div class="layout-menu-tooltip-text">Detalle Equipo</div></div></li>
+
+
+                                    <li id="menuform:sb_overlays" role="menuitem">
+                                        <a href="#{request.contextPath}/faces/vistas/componente/componenteT.xhtml">
+                                            <i class="fa fa-fw fa-square fa-fw layout-menuitem-icon"></i>
+                                            <span class="layout-menuitem-text">Componentes</span></a>
+                                        <div class="layout-menu-tooltip">
+                                            <div class="layout-menu-tooltip-arrow">
+                                            </div><div class="layout-menu-tooltip-text">Componentes</div></div></li>
+
+                                    <li id="menuform:sb_overlays" role="menuitem">
+                                        <a href="#{request.contextPath}/faces/vistas/software/softwareT.xhtml">
+                                            <i class="fa fa-fw fa-square fa-fw layout-menuitem-icon"></i>
+                                            <span class="layout-menuitem-text">Software</span></a>
+                                        <div class="layout-menu-tooltip">
+                                            <div class="layout-menu-tooltip-arrow">
+                                            </div><div class="layout-menu-tooltip-text">Software</div></div></li>
+
+                                    <li id="menuform:sb_menus" role="menuitem">
+                                        <a href="#{request.contextPath}/faces/vistas/usuario/usuarioT.xhtml">
+                                            <i class="fa fa-fw fa-minus-square-o fa-fw layout-menuitem-icon"></i>
+                                            <span class="layout-menuitem-text">Usuario</span>
+                                        </a><div class="layout-menu-tooltip"><div class="layout-menu-tooltip-arrow"></div><div class="layout-menu-tooltip-text">Usuario</div></div></li>
+
+                                    <li id="menuform:sb_messages" role="menuitem">
+                                        <a href="#{request.contextPath}/faces/vistas/marca/marcaT.xhtml">
+                                            <i class="fa fa-fw fa-circle-o-notch fa-fw layout-menuitem-icon"></i>
+                                            <span class="layout-menuitem-text">Marca</span>
+                                        </a><div class="layout-menu-tooltip"><div class="layout-menu-tooltip-arrow"></div><div class="layout-menu-tooltip-text">Marca</div></div></li>
+
+
+                                    <li id="menuform:sb_charts" role="menuitem">
+                                        <a href="#{request.contextPath}/faces/vistas/area/areaT.xhtml">
+                                            <i class="fa fa-fw fa-area-chart fa-fw layout-menuitem-icon"></i>
+                                            <span class="layout-menuitem-text">Area</span>
+                                        </a><div class="layout-menu-tooltip"><div class="layout-menu-tooltip-arrow"></div><div class="layout-menu-tooltip-text">Area</div></div></li>
+
+                                    <li id="menuform:sb_file" role="menuitem">
+                                        <a href="#{request.contextPath}/faces/vistas/tequipo/tequipoT.xhtml">
+                                            <i class="fa fa-fw fa-arrow-circle-o-up fa-fw layout-menuitem-icon"></i>
+                                            <span class="layout-menuitem-text">Tipo de Equipo</span>
+                                        </a><div class="layout-menu-tooltip"><div class="layout-menu-tooltip-arrow"></div><div class="layout-menu-tooltip-text">Tipo de Equipo</div></div></li>
+
+                                    <li id="menuform:sb_others" role="menuitem">
+                                        <a href="#{request.contextPath}/faces/vistas/tmovimiento/tmovimientoT.xhtml">
+                                            <i class="fa fa-fw fa-user-secret fa-fw layout-menuitem-icon"></i>
+                                            <span class="layout-menuitem-text">Tipo de Movimiento</span>
+                                        </a><div class="layout-menu-tooltip"><div class="layout-menu-tooltip-arrow"> </div><div class="layout-menu-tooltip-text">Tipo de Movimiento</div></div></li> </ul></li>
+
+
+
+                            <li id="menuform:sb_doc" role="menuitem"><div class="layout-menu-tooltip">
+                                </div></li></ul><script id="menuform:j_idt19_s" type="text/javascript">$(function () {
+                PrimeFaces.cw("Pandora", "PandoraMenuWidget", {id: "menuform:j_idt19"});
+            });</script><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:0" value="-3929107164149135529:-3842838999998900149" autocomplete="off" />
+                    </form>
+                </div> 
+            </div>  
+            <div class="layout-main">
+                <div class="layout-topbar">
+                    <div class="layout-topbar-wrapper">
+                        <div class="layout-topbar-left">
+                            <div class="menu-button">
+                                <i class="fa fa-bars"></i>
+                            </div><a id="logolink" name="logolink" href="dashboard.html" class="layout-topbar-logo">
+                                <img id="j_idt23" src="#{request.contextPath}/faces/javax.faces.resources/images/logo-pandora.svg" alt="" /></a>
+                        </div>
+                        <div class="layout-topbar-right">
+                            <ul class="layout-topbar-actions">
+                                <li class="search-item topbar-item">
+                                    <a href="#" class="topbar-search-mobile-button">
+                                        <i class="topbar-icon fa fa-search"></i>
+                                    </a>
+                                    <ul class="search-item-submenu">
+                                        <li>
+                                            <form id="j_idt25" name="j_idt25" method="post" action="https://www.primefaces.org/pandora/empty.xhtml" enctype="application/x-www-form-urlencoded" onsubmit="return false;">
+                                                <input type="hidden" name="j_idt25" value="j_idt25" />
+                                                <span class="md-inputfield search-input-wrapper"><input id="j_idt25:j_idt27" name="j_idt25:j_idt27" type="text" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" placeholder="Search..." /><script id="j_idt25:j_idt27_s" type="text/javascript">$(function () {
+                                                        PrimeFaces.cw("InputText", "widget_j_idt25_j_idt27", {id: "j_idt25:j_idt27", maxlength: -2147483648});
+                                                    });</script>
+                                                    <i class="fa fa-search"></i></span><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:1" value="-3929107164149135529:-3842838999998900149" autocomplete="off" />
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="topbar-item-v-separator"></li>
+                                <li class="topbar-item-v-separator"></li>
+                                <li class="topbar-item-v-separator"></li>
+                            </ul>
+                        </div>
+                        <a href="#" class="layout-rightpanel-button">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="layout-content">
+                    <div class="ui-g">
+                        <div class="ui-g-12">
+                            <ui:insert name="contenido"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="layout-mask"></div>
+            </div><div id="j_idt143" style="width:32px;height:32px;position:fixed;right:7px;bottom:7px"><div id="j_idt143_start" style="display:none">
+                    <i class="fa fa-circle-o-notch fa-spin ajax-loader" aria-hidden="true"></i></div><div id="j_idt143_complete" style="display:none"></div></div><script id="j_idt143_s" type="text/javascript">$(function () {
+                            PrimeFaces.cw("AjaxStatus", "widget_j_idt143", {id: "j_idt143", delay: 0});
+                        });</script>
+        </div>
+    </h:body>
+</html>

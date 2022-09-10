@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <ui:composition>
+        <h3>
+            <h1>Registrar Adquisicion</h1>
+        </h3>
+        <h:form id="tablaAdq">
+            <p:panelGrid columns="6"> 
+                <p:outputLabel value="Proovedor" />
+                <p:selectOneMenu value="#{adquisicionC.adquisicionDTO.IDPRO}"
+                                 filter="true" filterMatchMode="contains" required="true" requiredMessage="Falta Proovedor" >
+                    <f:selectItem  noSelectionOption="true" itemLabel="Seleccione" itemValue="#{null}" />
+                    <f:selectItems value="#{proovedorC.provedorses}" var="marcas" itemValue="#{marcas.IDPRO}"
+                                   itemLabel="#{marcas.RAZSOC}"/>                                  
+                </p:selectOneMenu>
+
+                <p:outputLabel value="Cantidad" />
+                <p:inputText value="#{adquisicionC.adquisicionDTO.CANTIDAD}" maxlength="10" required="true" requiredMessage="Digitar el Codigo"/>     
+
+                <p:outputLabel value="Fecha Compra" />
+                <p:calendar  placeholder="Ingrese fecha-compra" mask="true" id="fech"
+                             value="#{adquisicionC.adquisicionDTO.FECCOM}" locale="es"
+                             navigator="true" yearRange="c-100:c"  pattern="dd-MM-yyyy"
+                             required="true" requiredMessage="Falta fecha de compra"
+                             maxdate="today" showButtonPanel="true" />
+
+
+
+                <p:outputLabel value="Fecha Adquisicion" />
+                <p:calendar  placeholder="Ingrese fecha-adquisicion" mask="true" id="fecha"
+                             value="#{adquisicionC.adquisicionDTO.FECADQ}" locale="es"
+                             navigator="true" yearRange="c-100:c"  pattern="dd-MM-yyyy"
+                             required="true" requiredMessage="Falta fecha de adquisicion"
+                             maxdate="today" showButtonPanel="true" />
+
+                <p:outputLabel value="Codigo" />
+                <p:inputText value="#{adquisicionC.adquisicionDTO.CODADQ}" maxlength="10" required="true" requiredMessage="Digitar el Codigo"/>            
+            </p:panelGrid>
+            <p:commandButton value="Registrar" action="#{adquisicionC.registrar()}" update="adquisicion:tablaAdq"/>
+        </h:form> 
+    </ui:composition>
+</html>
+

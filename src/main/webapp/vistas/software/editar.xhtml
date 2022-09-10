@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <ui:composition>
+        <p:dialog header="Datos de Equipos" widgetVar="wdlgDatos" id="dlgdatos">
+            <h:form id="frm">
+                <p:panelGrid columns="6">
+                    <p:outputLabel value="Numero de Serie" />
+                    <p:selectOneMenu value="#{softwareC.seleccionado.IDDETEQU}"
+                                     filter="true" filterMatchMode="contains" required="true" requiredMessage="Falta Proovedor" >
+                        <f:selectItem  noSelectionOption="true" itemLabel="Seleccione" itemValue="#{null}" />
+                        <f:selectItems value="#{detalle_EquipoC.listdetalle_EquipoDTO}" var="marcas" itemValue="#{marcas.IDDETEQU}"
+                                       itemLabel="#{marcas.NROSER}"/>                                  
+                    </p:selectOneMenu>
+                    <p:outputLabel value="Software" />
+                    <p:inputText value="#{softwareC.seleccionado.SOFTWARE}" maxlength="10" required="true" requiredMessage="Digitar el Codigo"/>     
+
+                    <p:outputLabel value="Inicio de Garantia" />
+                    <p:calendar  placeholder="Ingrese fecha-compra" mask="true" id="fech"
+                                 value="#{softwareC.seleccionado.INIGAR}" locale="es"
+                                 navigator="true" yearRange="c-100:c"  pattern="dd-MM-yyyy"
+                                 required="true" requiredMessage="Falta fecha de Compra"
+                                 maxdate="today" showButtonPanel="true" />
+
+                    <p:outputLabel value="Fin de Garantia" />
+                    <p:calendar  placeholder="Ingrese fecha-adquisicion" mask="true" id="fecha"
+                                 value="#{softwareC.seleccionado.FINGAR}" locale="es"
+                                 navigator="true" yearRange="c-100:c"  pattern="dd-MM-yyyy"
+                                 required="true" requiredMessage="Falta fecha de Adquisicion"
+                                 maxdate="today" showButtonPanel="true" />       
+                    <p:outputLabel value="Estado"/>
+                    <p:selectOneRadio id="xd" value="#{softwareC.seleccionado.ESTSOF}" unselectable="true">
+                        <f:selectItem itemLabel="ACTIVO" itemValue="ACTIVO" />
+                        <f:selectItem itemLabel="INACTIVO" itemValue="INACTIVO" />
+                    </p:selectOneRadio>
+                </p:panelGrid>
+                <p:commandButton value="Cancelar" immediate="true" />
+                <p:commandButton value="Modificar" actionListener="#{softwareC.modificar()}"
+                                 update="adquisicion:tablaAdq" oncomplete="PF('wdlgDatos').hide();" >
+                    <p:confirm header="Confirmación" message="¿Deseas Modificar?" icon="ui-icon-alert"/>
+                    <p:tooltip trackMouse="true"/>
+                </p:commandButton>
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                    <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                </p:confirmDialog>
+            </h:form>
+        </p:dialog>
+    </ui:composition>
+</html>
+

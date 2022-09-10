@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <ui:composition>
+        <h3>
+            <h1>Registrar Detalle_Equipo</h1>
+        </h3>
+        <h:form id="tablaAdq">
+            <p:panelGrid columns="6"> 
+                <p:outputLabel value="Codigo Adquisicion" />
+                <p:selectOneMenu value="#{detalle_EquipoC.detalle_EquipoDTO.IDADQ}"
+                                 filter="true" filterMatchMode="contains" required="true" requiredMessage="Falta Codigo de Adquisicion" >
+                    <f:selectItem  noSelectionOption="true" itemLabel="Seleccione" itemValue="#{null}" />
+                    <f:selectItems value="#{adquisicionC.listAdquisicionDTO}" var="Adq" itemValue="#{Adq.IDADQ}"
+                                   itemLabel="#{Adq.CODADQ}"/>                                  
+                </p:selectOneMenu>
+                <p:outputLabel value="Codigo Usuario" />
+                <p:selectOneMenu value="#{detalle_EquipoC.detalle_EquipoDTO.IDUSU}"
+                                 filter="true" filterMatchMode="contains" required="true" requiredMessage="Falta de Usuario" >
+                    <f:selectItem  noSelectionOption="true" itemLabel="Seleccione" itemValue="#{null}" />
+                    <f:selectItems value="#{usuarioC.listUsuarioDTO}" var="usu" itemValue="#{usu.IDUSU}"
+                                   itemLabel="#{usu.DNIUSU}"/>                                  
+                </p:selectOneMenu>
+                <p:outputLabel value="Modelo de Equipo" />
+                <p:selectOneMenu value="#{detalle_EquipoC.detalle_EquipoDTO.IDEQU}"
+                                 filter="true" filterMatchMode="contains" required="true" requiredMessage="Falta modelo de Equipo" >
+                    <f:selectItem  noSelectionOption="true" itemLabel="Seleccione" itemValue="#{null}" />
+                    <f:selectItems value="#{equipoC.listEquipoDTO}" var="equ" itemValue="#{equ.IDEQU}"
+                                   itemLabel="#{equ.MODEQU}"/>                                  
+                </p:selectOneMenu>
+                <p:outputLabel value="Numero Serie" />
+                <p:inputText value="#{detalle_EquipoC.detalle_EquipoDTO.NROSER}" maxlength="15" required="true" requiredMessage="Digitar el Numero de Serie"/>  
+                <p:outputLabel value="Estado" />
+                <p:inputText value="#{detalle_EquipoC.detalle_EquipoDTO.DETEQU}" maxlength="30" required="true" requiredMessage="Digitar el Estado"/>  
+                <p:outputLabel value="Color" />
+                <p:inputText value="#{detalle_EquipoC.detalle_EquipoDTO.COLEQU}" maxlength="30" required="true" requiredMessage="Digitar el color"/> 
+
+                <p:outputLabel value="Inicio de Garantia" />
+                <p:calendar  placeholder="Ingrese fecha-compra" mask="true" id="fech"
+                             value="#{detalle_EquipoC.detalle_EquipoDTO.GARFIN}" locale="es"
+                             navigator="true" yearRange="c-100:c"  pattern="dd-MM-yyyy"
+                             required="true" requiredMessage="Falta fecha de Garantia"
+                             maxdate="today" showButtonPanel="true" />
+
+
+                <p:outputLabel value="Fin de Garantia" />
+                <p:calendar  placeholder="Ingrese fecha-adquisicion" mask="true" id="fecha"
+                             value="#{detalle_EquipoC.detalle_EquipoDTO.GARFIN}" locale="es"
+                             navigator="true" yearRange="c-100:c"  pattern="dd-MM-yyyy"
+                             required="true" requiredMessage="Falta fecha de adquisicion"
+                             maxdate="today" showButtonPanel="true" />
+
+                <p:outputLabel value="Precio de Equipo" />
+                <p:inputText value="#{detalle_EquipoC.detalle_EquipoDTO.PRECIO}" maxlength="30" required="true" requiredMessage="Digitar la cantidad"/>  
+
+            </p:panelGrid>
+            <p:commandButton value="Registrar" action="#{detalle_EquipoC.registrar()}" update="adquisicion:tablaAdq"/>
+        </h:form> 
+    </ui:composition>
+</html>
+

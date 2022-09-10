@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <ui:composition>
+        <h3>
+            <h1> Registrar Tipo de Equipo</h1>
+        </h3>
+        <h:form id="tablaAre">
+            <p:panelGrid columns="6">  
+                <p:outputLabel value="Nombres"/>
+                <p:inputText value="#{tipo_EquipoC.tequipo.NOMEQU}" maxlength="15" required="true" requiredMessage="Digitar el nombre"/>
+            </p:panelGrid>
+            <p:commandButton value="Registrar" action="#{tipo_EquipoC.registrar()}" update="area:tablaAre"/>
+        </h:form>  
+    </ui:composition>
+</html>
+

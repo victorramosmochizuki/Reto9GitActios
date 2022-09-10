@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <ui:composition>
+        <h3>
+            <h1>Registrar Proveedor</h1>
+        </h3>
+        <h:form id="tablaPro">
+            <p:panelGrid columns="6">  
+                <p:outputLabel value="Razon Social"/>
+                <p:inputText value="#{proovedorC.provedors.RAZSOC}" maxlength="100" required="true" requiredMessage="Digitar la Razon Social"/>  
+                <p:outputLabel value="Nombre Comercial"/>
+                <p:inputText value="#{proovedorC.provedors.NOMCOM}" maxlength="100" required="true" requiredMessage="Digitar la Razon Social"/>                  
+                <p:outputLabel value="RUC" />
+                <p:inputText value="#{proovedorC.provedors.RUC}" maxlength="11" required="true" requiredMessage="Digitar el RUC">
+                    <p:keyFilter regEx="/[0-11]/"/>
+                    <f:validateLength minimum="11" maximum="11" />
+                </p:inputText>
+
+
+                <p:outputLabel value="Vendedor"/>
+                <p:inputText value="#{proovedorC.provedors.VENDEDOR}" maxlength="30" required="true" requiredMessage="Digitar el Email"/> 
+                
+                <p:outputLabel value="Email"/>
+                <p:inputText  id="correo" required="true" maxlength="50" value="#{proovedorC.provedors.EMAIL}" label="Correo inválido" placeholder="Ingresar Correo" style="width: 200px">
+                    <f:ajax event="keyup" execute="@this" render="correoMensaje" />
+                    <f:validator validatorId="correoValidator"/>
+                </p:inputText> 
+
+                <p:outputLabel value="Numero" />
+                <p:inputText value="#{proovedorC.provedors.NUMPRO}" maxlength="9" required="true" requiredMessage="Digitar el Numero">
+                    <p:keyFilter regEx="/[0-9]/"/>
+                    <f:validateLength minimum="9" maximum="9" />
+                </p:inputText>             
+            </p:panelGrid>
+            <p:commandButton value="Registrar" action="#{proovedorC.registrar()}" update="proovedor:tablaPro"/>
+        </h:form>  
+    </ui:composition>
+</html>
+

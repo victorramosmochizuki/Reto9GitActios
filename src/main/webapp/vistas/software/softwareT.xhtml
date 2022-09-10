@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+
+    <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                    template="./../../demo2.xhtml">
+
+        <ui:define name="contenido">
+            <h:head>
+                <title>Mantenimiento</title>
+                <f:event listener="#{softwareC.listar()}" type="preRenderView" />
+            </h:head>
+            <h:body>
+                <p:growl id="msj" showDetail="true" sticky="true">
+                    <p:autoUpdate/>
+                </p:growl>
+
+                <!--            Formulario de registrar            -->
+                <ui:include src="registrar.xhtml"/>             
+                <!--            Formulario de registrar-->
+
+                <h:form id="adquisicion">
+                    <p:dataTable var="car" id="tablaAdq" value="#{softwareC.listSoftwareDTO}">                        
+                        <p:column headerText="Numero de Serie">
+                            <h:outputText value="#{car.detalle}" />
+                        </p:column>
+                        <p:column headerText="Software">
+                            <h:outputText value="#{car.SOFTWARE}" />
+                        </p:column>
+                        <p:column headerText="Inicio de Garantia">
+                            <h:outputText value="#{car.INIGAR}" />
+                        </p:column>
+                        <p:column headerText="Fin de Garantia">
+                            <h:outputText value="#{car.FINGAR}"/>
+                        </p:column>   
+                        <p:column headerText="Estado">
+                            <h:outputText value="#{car.ESTSOF}"/>
+                        </p:column>    
+                        <p:column headerText="Modificar">
+                            <p:commandButton icon="ui-icon-build" 
+                                             oncomplete="PF('wdlgDatos').show();" 
+                                             update=":frm">
+                                <f:setPropertyActionListener value="#{car}" target="#{softwareC.seleccionado}"  />    
+                            </p:commandButton>   
+                        </p:column>                    
+                        <p:column headerText="Inactivar">
+                            <p:commandButton icon="ui-icon-circle-close" actionListener="#{softwareC.modificarEstado(car.IDSOF)}" update="tablaAdq">                           
+                                <p:confirm header="Confirmación" message="¿Deseas Eliminar?" icon="ui-icon-alert"/>
+                                <p:tooltip trackMouse="true"/>
+                            </p:commandButton>
+                            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                            </p:confirmDialog>
+                        </p:column>
+                        <p:column headerText="Eliminar">
+                            <p:commandButton icon="ui-icon-circle-close" actionListener="#{softwareC.eliminar(car.IDSOF)}" update="tablaAdq">                           
+                                <p:confirm header="Confirmación" message="¿Deseas Eliminar?" icon="ui-icon-alert"/>
+                                <p:tooltip trackMouse="true"/>
+                            </p:commandButton>
+                            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                            </p:confirmDialog>
+                        </p:column>
+                        <f:facet name="footer">
+                            EN TOTAL HAY #{fn:length(softwareC.listSoftwareDTO)} REGISTROS.
+                        </f:facet>                   
+                    </p:dataTable>                    
+                </h:form>
+                <ui:include src="editar.xhtml"/>  
+            </h:body>
+
+        </ui:define>
+
+    </ui:composition>
+</html>

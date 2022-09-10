@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <ui:composition>
+        <h3>
+            <h1>Registrar Componente</h1>
+        </h3>
+        <h:form id="tablaEqu">
+            <p:panelGrid columns="6"> 
+                <p:outputLabel value="Numero de Serie" />
+                <p:selectOneMenu value="#{componenteC.componenteDTO.IDDETEQU}"
+                                 filter="true" filterMatchMode="contains" required="true" requiredMessage="Falta Codigo de Equipo" >
+                    <f:selectItem  noSelectionOption="true" itemLabel="Seleccione" itemValue="#{null}" />
+                    <f:selectItems value="#{detalle_EquipoC.listdetalle_EquipoDTO}" var="codigo" itemValue="#{codigo.IDDETEQU}"
+                                   itemLabel="#{codigo.NROSER}"/>                                  
+                </p:selectOneMenu>
+                <p:outputLabel value="Componente" />
+                <p:inputText value="#{componenteC.componenteDTO.CLAVE}" required="true" requiredMessage="Seleccione Componente"/>
+                <p:outputLabel value="Descripcion" />
+                <p:inputText value="#{componenteC.componenteDTO.VALOR}" required="true" requiredMessage="Seleccione Descripcion"/>     
+            </p:panelGrid>
+            <p:commandButton value="Registrar" action="#{componenteC.registrar()}" update="equipo:tablaEqu"/>
+        </h:form> 
+    </ui:composition>
+</html>
+

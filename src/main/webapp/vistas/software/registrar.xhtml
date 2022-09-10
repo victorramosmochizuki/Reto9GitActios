@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <ui:composition>
+        <h3>
+            <h1>Registrar Software</h1>
+        </h3>
+        <h:form id="tablaAdq">
+            <p:panelGrid columns="6"> 
+                <p:outputLabel value="Numero de Serie" />
+                <p:selectOneMenu value="#{softwareC.softwareDTO.IDDETEQU}"
+                                 filter="true" filterMatchMode="contains" required="true" requiredMessage="Falta Proovedor" >
+                    <f:selectItem  noSelectionOption="true" itemLabel="Seleccione" itemValue="#{null}" />
+                    <f:selectItems value="#{detalle_EquipoC.listdetalle_EquipoDTO}" var="marcas" itemValue="#{marcas.IDDETEQU}"
+                                   itemLabel="#{marcas.NROSER}"/>                                  
+                </p:selectOneMenu>
+                <p:outputLabel value="Software" />
+                <p:inputText value="#{softwareC.softwareDTO.SOFTWARE}" maxlength="10" required="true" requiredMessage="Digitar el Codigo"/>     
+
+                <p:outputLabel value="Inicio de Garantia" />
+                <p:calendar  placeholder="Ingrese fecha-compra" mask="true" id="fech"
+                             value="#{softwareC.softwareDTO.INIGAR}" locale="es"
+                             navigator="true" yearRange="c-100:c"  pattern="dd-MM-yyyy"
+                             required="true" requiredMessage="Falta fecha de Compra"
+                             maxdate="today" showButtonPanel="true" />
+
+                <p:outputLabel value="Fin de Garantia" />
+                <p:calendar  placeholder="Ingrese fecha-adquisicion" mask="true" id="fecha"
+                             value="#{softwareC.softwareDTO.FINGAR}" locale="es"
+                             navigator="true" yearRange="c-100:c"  pattern="dd-MM-yyyy"
+                             required="true" requiredMessage="Falta fecha de Adquisicion"
+                             maxdate="today" showButtonPanel="true" />              
+            </p:panelGrid>
+            <p:commandButton value="Registrar" action="#{softwareC.registrar()}" update="adquisicion:tablaAdq"/>
+        </h:form> 
+    </ui:composition>
+</html>
+
